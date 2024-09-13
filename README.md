@@ -1,6 +1,7 @@
 ## 目录结构介绍
 ```
 ├── Rope_Custom
+│   ├── figure               // README文件中的图片
 │   ├── test_rope.py         // python调用脚本
 │   ├── rope_custom.cpp      // 算子实现
 │   ├── CMakeLists.txt       // 编译工程文件
