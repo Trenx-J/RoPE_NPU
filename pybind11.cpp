@@ -14,12 +14,13 @@
 #include "torch_npu/csrc/core/npu/NPUStream.h"
 
 namespace my_rope {
-at::Tensor run_rope_custom(at::Tensor &x, at::Tensor &c, at::Tensor &s, uint32_t &t)
+at::Tensor run_rope_custom(at::Tensor &x, at::Tensor &c, at::Tensor &s)
 {
     auto acl_stream = c10_npu::getCurrentNPUStream().stream(false);
+    
     uint32_t blockDim = 48;
     uint32_t totalLength = 1;
-    uint32_t tilingLength = t;
+    uint32_t tilingLength = 6144;
     uint32_t input_dim = x.sizes()[3];
     for (uint32_t size : x.sizes()) {
         totalLength *= size;

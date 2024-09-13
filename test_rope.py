@@ -42,8 +42,6 @@ datatype=torch.float32
 dtDic={ torch.float16:0, torch.bfloat16:1, torch.float32:2}
 shapes=[1,480*20,24,32]
 shape=[1,480*20,1,32]
-tilingLength=1024*6
-
 print(">>>>>>>>>>>>[INFO]:Initing inputs, waiting ...............")
 x=torch.rand(shapes,device='cpu', dtype=datatype)
 sin=torch.rand(shape,device='cpu', dtype=datatype)
@@ -55,7 +53,7 @@ cos_npu=cos.npu()
 class TestCustomRope(TestCase):
     def test_rope_custom_ops(self): 
         cpuout = verify_op(x, cos, sin)
-        output = rope_custom.run_rope_custom(x_npu, cos_npu, sin_npu, tilingLength)
+        output = rope_custom.run_rope_custom(x_npu, cos_npu, sin_npu)
         output=output.cpu()
        
         not_equal_indices = [i for i, (a, b) in enumerate(zip(output[0,:,:,:],cpuout[0,:,:,:])) if not torch.equal(a,b)]
