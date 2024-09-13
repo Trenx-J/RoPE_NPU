@@ -96,7 +96,6 @@ class TestCustomRope(TestCase):
 if __name__ == "__main__":
     print(">>>>>>>>>>>>[INFO]: The running shapes       :", shapes)
     print(">>>>>>>>>>>>[INFO]: The datatype             :", datatype)
-    print(">>>>>>>>>>>>[INFO]: The tiling_length        :", tilingLength)
     print(">>>>>>>>>>>>[INFO]: Running in NPU, waiting ...............")
     run_tests()
     
