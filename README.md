@@ -163,6 +163,9 @@ mask用于控制每次迭代内参与计算的元素。参与计算的元素数�
 注意：当计算的数据类型为32bit那么mask[1]=0
 ### ②block stide和repeat stride参数
 
+详细说明见[基础API通用说明](https://www.hiascend.com/document/detail/zh/canncommercial/80RC22/apiref/opdevgapi/atlasascendc_api_07_0011.html#ZH-CN_TOPIC_0000001949462686__section2815124173416)
+
+
 ## 其他问题
 ### ①脚本问题
 
