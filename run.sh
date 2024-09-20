@@ -50,5 +50,6 @@ cmake -B build \
 cmake --build build -j
 (
     cd build
-    python3 ../test_rope.py
+    python3 ../test_rope1d.py
+    python3 ../test_rope3d.py
 )

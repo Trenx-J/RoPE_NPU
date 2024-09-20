@@ -2,7 +2,8 @@
 ```
 ├── Rope_Custom
 │   ├── figure               // README文件中的图片
-│   ├── test_rope.py         // python调用脚本
+│   ├── test_rope1d.py       // python调用测试rope1d脚本
+│   ├── test_rope3d.py       // python调用测试rope3d脚本
 │   ├── rope_custom.cpp      // 算子实现
 │   ├── CMakeLists.txt       // 编译工程文件
 │   ├── pybind11.cpp         // pybind11函数封装
@@ -164,7 +165,6 @@ mask用于控制每次迭代内参与计算的元素。参与计算的元素数�
 ### ②block stide和repeat stride参数
 
 详细说明见[基础API通用说明](https://www.hiascend.com/document/detail/zh/canncommercial/80RC22/apiref/opdevgapi/atlasascendc_api_07_0011.html#ZH-CN_TOPIC_0000001949462686__section2815124173416)
-
 
 ## 其他问题
 ### ①脚本问题
