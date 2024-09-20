@@ -54,7 +54,7 @@ cos_npu=cos.npu()
 class TestCustomRope(TestCase):
     def test_rope_custom_ops(self): 
         cpuout = verify_op(x, cos, sin)
-        output = rope_custom.rope1d(x_npu, cos_npu, sin_npu,6* 1024)
+        output = rope_custom.rope(x_npu, cos_npu, sin_npu,6* 1024,32)
         output=output.cpu()
        
         not_equal_indices = [i for i, (a, b) in enumerate(zip(output[0,:,:,:],cpuout[0,:,:,:])) if not torch.equal(a,b)]

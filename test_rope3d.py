@@ -3,7 +3,7 @@ import torch_npu
 from torch_npu.testing.testcase import TestCase, run_tests
 
 import sys, os
-current_dir = "/home/image_data/jinchunxu/AscendC_Custom/Rope_Custom/"
+current_dir = "/home/image_data/jinchunxu/AscendC_Custom/RotaryCustom/"
 build_path = os.path.join(current_dir, 'build')
 sys.path.append(build_path)
 sys.path.append(os.getcwd())
@@ -43,7 +43,7 @@ sin_npu=sin.npu()
 class TestCustomRope(TestCase):
     def test_rope_custom_ops(self): 
         cpuout = op(x, cos,sin)
-        output = rope_custom.rope3d(x_npu, cos_npu, sin_npu, 9* 1024)
+        output = rope_custom.rope(x_npu, cos_npu, sin_npu, 6* 1024, 32)
 
         output=output.cpu()
         not_equal_indices = [i for i, (a, b) in enumerate(zip(output[0,:,:,:],cpuout[0,:,:,:])) if not torch.equal(a,b)]
@@ -51,7 +51,7 @@ class TestCustomRope(TestCase):
         print(output[0,0,:2,:]==cpuout[0,0,:2,:])   
         print("reference:\n",cpuout[0,0,:2,:])
         print("reuslt:\n",output[0,0,:2,:])
-        
+
         #self.assertRtolEqual(output, cpuout)
 
 if __name__ == "__main__":
