@@ -12,7 +12,7 @@
 ## 算子基础信息
 |  算子名称    |  Rope_Custom|
 |-------------|-------------|
-|   api接口   |    rope_custom(x,cos,sin)   |
+|   api接口   |    rope_custom.rope1d(x,cos,sin,tilelength)   |
 |    支持数据类型   |    float16,float32,bfloat16  |
 |    支持芯片类型  |    910B  |
 
