@@ -12,7 +12,7 @@
 ## 算子基础信息
 |  算子名称    |  Rope_Custom|
 |-------------|-------------|
-|   api接口   |    rope_custom.rope1d(x,cos,sin,tilelength)   |
+|   api接口   |    rope_custom(x,cos,sin)   |
 |    支持数据类型   |    float16,float32,bfloat16  |
 |    支持芯片类型  |    910B  |
 
@@ -50,7 +50,7 @@
 
   pybind11.cpp文件是一个C++的代码示例，使用了pybind11库来将C++代码封装成Python模块。该代码实现中定义了一个名为m的pybind11模块，其中包含一个名为run_rope_custom的函数。该函数与my_rope::run_rope_custom函数相同，用于将C++函数转成Python函数。在函数实现中，通过c10_npu::getCurrentNPUStream() 的函数获取当前NPU上的流，并调用ACLRT_LAUNCH_KERNEL宏启动自定义的Kernel函数rope_custom，在NPU上执行算子。
 
-  在rope_custom_test.py调用脚本中，通过导入自定义模块rope_custom，调用自定义模块rope_custom中的run_rope_custom函数，在NPU上执行Rope操作，并将结果保存在变量z中。
+  在test_rope1d.py调用脚本中，通过导入自定义模块rope_custom，调用自定义模块rope_custom中的rope1函数，在NPU上执行RoPE1D操作，并将结果保存在变量z中。
 ## 运行样例算子
   - 安装pytorch (这里使用2.1.0版本为例)
 
